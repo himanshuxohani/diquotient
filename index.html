@@ -825,10 +825,11 @@
         </footer>
     </div>
 
-    <script>
+    <!-- <script>
         const listItems = document.querySelectorAll(".dropdown-column li");
         const previewBox = document.querySelector(".dropdown-preview");
         const previewImg = document.getElementById("preview-img");
+        const dropdownContent = document.querySelector(".dropdown-content");
 
         listItems.forEach(item => {
             item.addEventListener("mouseenter", () => {
@@ -836,17 +837,15 @@
                 previewImg.src = imgSrc;
                 previewBox.style.display = "flex";
             });
-
-            item.addEventListener("mouseleave", () => {
-                previewBox.style.display = "none";
-            });
         });
-    </script>
 
+        // Hide preview only when mouse leaves the entire content area:
+        dropdownContent.addEventListener("mouseleave", () => {
+            previewBox.style.display = "none";
+        });
+    </script> -->
 
-
-
-
+    <script src="imghover.js"></script>
 
     <script src="/preview/a7e56530-a4f1-4c10-8889-78bf632ce47c/1877418/_next/static/chunks/webpack-63e7df8e0265845c.js"
         async=""></script>
