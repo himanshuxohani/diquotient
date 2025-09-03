@@ -97,7 +97,7 @@
                             </div>
                         </li>
 
-                        <li class="navbar-item has-dropdown">
+                        <!-- <li class="navbar-item has-dropdown">
                             <a class="text-[#7D7D7D] hover:text-[#FF5722] transition-colors cursor-pointer"
                                 href="#industries">Industries</a>
                             <div class="dropdown-menu">
@@ -116,7 +116,40 @@
                                     </div>
                                 </div>
                             </div>
+                        </li> -->
+
+                        <li class="navbar-item has-dropdown">
+                            <a class="text-[#7D7D7D] hover:text-[#FF5722] transition-colors cursor-pointer"
+                                href="#industries">Industries</a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content flex">
+                                    <div class="dropdown-column w-1/2">
+                                        <ul>
+                                            <li data-img="images/chemical.jpg"><a
+                                                    href="ChemicalGreenH2&Ammonia.html">Chemical, Green H2 & Ammonia</a>
+                                            </li>
+                                            <li data-img="images/food&beverages.jpg"><a href="Food&Beverages.html">Food
+                                                    & Beverages</a></li>
+                                            <li data-img="images/mining.jpg"><a href="MiningMinerals&Metal.html">Mining,
+                                                    Minerals & Metal</a></li>
+                                            <li data-img="images/oil&gas.jpg"><a href="Oil&Gas.html">Oil & Gas</a></li>
+                                            <li data-img="images/power&utilities.jpg"><a
+                                                    href="Power&Utilities.html">Power & Utilities</a></li>
+                                            <li data-img="images/pulp&paper.jpg"><a href="Pulp&Paper.html">Pulp &
+                                                    Paper</a></li>
+                                            <li data-img="images/water.jpg"><a href="Water&WasteWater.html">Water &
+                                                    Waste Water</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-preview">
+                                        <img id="preview-img" src="" alt="Preview" />
+                                    </div>
+                                </div>
+                            </div>
                         </li>
+
+
+
                         <a class="text-[#7D7D7D] hover:text-[#FF5722] transition-colors cursor-pointer"
                             href="contact.html">Contact Us</a>
                     </div><button class="md:hidden p-2 cursor-pointer"><i
@@ -791,6 +824,30 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        const listItems = document.querySelectorAll(".dropdown-column li");
+        const previewBox = document.querySelector(".dropdown-preview");
+        const previewImg = document.getElementById("preview-img");
+
+        listItems.forEach(item => {
+            item.addEventListener("mouseenter", () => {
+                const imgSrc = item.getAttribute("data-img");
+                previewImg.src = imgSrc;
+                previewBox.style.display = "flex";
+            });
+
+            item.addEventListener("mouseleave", () => {
+                previewBox.style.display = "none";
+            });
+        });
+    </script>
+
+
+
+
+
+
     <script src="/preview/a7e56530-a4f1-4c10-8889-78bf632ce47c/1877418/_next/static/chunks/webpack-63e7df8e0265845c.js"
         async=""></script>
     <script>(self.__next_f = self.__next_f || []).push([0])</script>
