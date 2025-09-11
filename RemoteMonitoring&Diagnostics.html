@@ -7,88 +7,250 @@
     <title>Remote Monitoring & Diagnostics - Digital Quotient</title>
     <link rel="stylesheet" href="new.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF5722;
+            --secondary-color: #FF7043;
+            --accent-color: #FFB74D;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --text-color: #333;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Open Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.9), rgba(255, 112, 67, 0.8)), url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #f8f9fa;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Solutions Section */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Industry Section */
+        .industry-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 3rem;
+        }
+
+        .industry-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .industry-item:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Specializations Section */
+        .specializations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .specialization-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .specialization-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.05), rgba(255, 112, 67, 0.1));
+        }
+
+        .why-choose-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
-    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
-        <nav class="px-6 py-4">
-            <div class="flex items-center justify-between"><a class="flex items-center space-x-3"
-                    href="/index.html"><img
-                        src="https://static.readdy.ai/image/84632ebcdf9fa24ce4425d682589c9da/94d5583d898426c439653093de04654a.jfif"
-                        alt="Digital Quotient" class="h-10 w-auto" />
-                </a>
-                <div class="hidden md:flex items-center space-x-8"><a
-                        class="text-[#7D7D7D] hover:text-[#FF5722] transition-colors cursor-pointer"
-                        href="about.html">About Us</a>
-                    <li class="navbar-item has-dropdown list-none relative">
-                        <a class="flex items-center gap-1 text-[#7D7D7D] hover:text-[#FF5722] transition-colors cursor-pointer"
-                            href="#services">
-                            Services
-                        </a>
-
-                        <div class="dropdown-menu absolute hidden">
-                            <div class="dropdown-content">
-                                <div class="dropdown-column">
-                                    <ul class="list-none">
-                                        <li><a href="Analytics&AI.html">Analytics & AI</a></li>
-                                        <li><a href="CyberSecurity.html">CyberSecurity</a></li>
-                                        <li><a href="DigitalTransformationConsulting.html">Digital Transformation
-                                                Consulting</a></li>
-                                        <li><a href="DigitalTwins&Simulations.html">Digital Twins & Simulations</a>
-                                        </li>
-                                        <li><a href="EnterpriseUnifiedSolutions.html">Enterprise Unified
-                                                Solutions</a></li>
-                                        <li><a href="Industry4.0&BusinessProcesses.html">Industry 4.0 & Business
-                                                Processes</a></li>
-                                        <li><a href="ProcessControl&Optimization.html">Process Control &
-                                                Optimization</a></li>
-                                        <li><a href="RemoteMonitoring&Diagnostics.html">Remote Monitoring &
-                                                Diagnostics</a></li>
-                                        <li><a href="SmartFacilities.html">Smart Facilities</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="navbar-item has-dropdown">
-                        <a class="text-[#7D7D7D] hover:text-[#FF5722] transition-colors cursor-pointer"
-                            href="#industries">Industries</a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <div class="dropdown-column">
-                                    <ul>
-                                        <li><a href="ChemicalGreenH2&Ammonia.html">Chemical, Green H2 & Ammonia</a>
-                                        </li>
-                                        <li><a href="Food&Beverages.html">Food & Beverages</a></li>
-                                        <li><a href="MiningMinerals&Metal.html">Mining, Minerals & Metal</a></li>
-                                        <li><a href="Oil&Gas.html">Oil & Gas</a></li>
-                                        <li><a href="Power&Utilities.html">Power & Utilities</a></li>
-                                        <li><a href="Pulp&Paper.html">Pulp & Paper</a></li>
-                                        <li><a href="Water&WasteWater.html">Water & Waste Water</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <a class="text-[#7D7D7D] hover:text-[#FF5722] transition-colors cursor-pointer"
-                        href="contact.html">Contact
-                        Us</a>
-                </div><button class="md:hidden p-2 cursor-pointer"><i
-                        class="ri-menu-line text-2xl text-[#7D7D7D] w-6 h-6 flex items-center justify-center"></i></button>
-            </div>
-        </nav>
-    </header>
-
-
+    <div id="header"></div>
     <section id="about" class="py-20 bg-white">
+        <div>
+            <section class="hero">
+                <div class="container">
+                    <h1>Remote Monitoring & Diagnostics</h1>
+                    <p>Real-time monitoring systems with advanced diagnostic capabilities for proactive maintenance and
+                        operational oversight.</p>
+                </div>
+            </section>
+        </div>
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Remote Monitoring & Diagnostics</h2>
-                <p class="text-xl text-[#7D7D7D] max-w-3xl mx-auto leading-relaxed">Real-time monitoring systems with advanced diagnostic capabilities for proactive maintenance and operational oversight.</p>
-            </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                <div
+                    class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer mt-4">
                     <div class="flex items-start space-x-6">
                         <div
                             class="w-16 h-16 bg-[#FF5722] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
@@ -105,7 +267,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                <div
+                    class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer mt-4">
                     <div class="flex items-start space-x-6">
                         <div
                             class="w-16 h-16 bg-[#FF5722] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
@@ -121,7 +284,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                <div
+                    class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer mb-4">
                     <div class="flex items-start space-x-6">
                         <div
                             class="w-16 h-16 bg-[#FF5722] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
@@ -138,7 +302,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                <div
+                    class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer mb-4">
                     <div class="flex items-start space-x-6">
                         <div
                             class="w-16 h-16 bg-[#FF5722] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
@@ -156,6 +321,115 @@
                 </div>
             </div>
         </div>
+        <div>
+            <section class="about">
+                <div class="container">
+                    <div class="about-content">
+                        <h2>Transforming Industries Through Digital Innovation</h2>
+                        <p>At Dquotient, we combine decades of engineering expertise with cutting-edge digital
+                            technologies to create solutions that drive efficiency, reduce risk, and accelerate
+                            innovation across complex industrial operations.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Solutions We Provide</h2>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Process Enhancement</h3>
+                    <p>Expert analysis and optimization of industrial workflows to maximize efficiency across plant and
+                        business operations.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Digital Modernization</h3>
+                    <p>Integrating digital systems and automation for smart, advanced data-driven processes.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Digital Modeling & Simulation</h3>
+                    <p>Visualize, validate, and optimize in a digital environment – reducing operational disturbance and
+                        safety hazard in real world scenario.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>Simulation Testing & Virtual Prototyping</h3>
+                    <p>Testing concepts and prototypes virtually, finding design improvements and validating performance
+                        across scenarios before implementation.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Scenario Analysis</h3>
+                    <p>Using simulation tools to run "what-if" analyses, forecast outcomes, and support confident
+                        decision-making on process improvements or investments.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Project Execution</h3>
+                    <p>End-to-end project management, from solution design through seamless implementation, tailored to
+                        each client's unique objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section class="specializations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Specializations</h2>
+            </div>
+            <div class="specializations-grid">
+                <div class="specialization-card">
+                    <h3>Strategic Consulting</h3>
+                    <p>Business-focused guidance on system design, technology adoption, and innovation roadmaps.</p>
+                </div>
+                <div class="specialization-card">
+                    <h3>Systems Integration</h3>
+                    <p>Unifying data and workflows across enterprise solutions, laboratory systems, and operations
+                        platforms.</p>
+                </div>
+                <div class="specialization-card">
+                    <h3>Performance Optimization & Training</h3>
+                    <p>Building capabilities for technical teams using simulation-driven training and continuous
+                        improvement programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Dquotient?</h2>
+            </div>
+            <div class="why-choose-content">
+                <p>Dquotient delivers high-fidelity engineering solutions that enable digital insight, reduce risk,
+                    accelerate innovation, and provide businesses with a competitive advantage—all grounded in a
+                    collaborative, client-focused approach.</p>
+            </div>
+        </div>
     </section>
 
     <footer class="bg-gray-900 text-white py-6 mt-16">
@@ -163,6 +437,87 @@
             <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        // Load header dynamically
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+
+                // ✅ Run hover script only after header is inserted
+                initHoverPreview();
+            });
+
+        function initHoverPreview() {
+            const dropdowns = document.querySelectorAll(".navbar-item.has-dropdown");
+
+            dropdowns.forEach(dropdown => {
+                const listItems = dropdown.querySelectorAll(".dropdown-column li");
+                const previewBox = dropdown.querySelector(".dropdown-preview");
+                const previewImg = dropdown.querySelector("#preview-img");
+                const dropdownContent = dropdown.querySelector(".dropdown-content");
+
+                if (!listItems.length || !previewBox || !previewImg) return;
+
+                listItems.forEach(item => {
+                    item.addEventListener("mouseenter", () => {
+                        const imgSrc = item.getAttribute("data-img");
+                        previewImg.src = imgSrc;
+                        previewBox.style.display = "flex";
+                    });
+                });
+
+                dropdownContent.addEventListener("mouseleave", () => {
+                    previewBox.style.display = "none";
+                    previewImg.src = "";
+                });
+            });
+        }
+    </script>
 
 </body>
 
