@@ -261,7 +261,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Threat Detection</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We provide advanced threat detection solutions that identify risks, prevent breaches, safeguard assets, and ensure security through intelligent monitoring.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We provide advanced threat detection solutions
+                                that identify risks, prevent breaches, safeguard assets, and ensure security through
+                                intelligent monitoring.</p>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Security Audits</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We perform comprehensive security audits to identify vulnerabilities, assess compliance, strengthen defenses, and ensure robust protection of digital infrastructure.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We perform comprehensive security audits to
+                                identify vulnerabilities, assess compliance, strengthen defenses, and ensure robust
+                                protection of digital infrastructure.</p>
                         </div>
                     </div>
                 </div>
@@ -292,7 +296,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Compliance Management</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We offer compliance management solutions that streamline processes, ensure regulatory adherence, reduce risks, and maintain organizational integrity with confidence</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We offer compliance management solutions that
+                                streamline processes, ensure regulatory adherence, reduce risks, and maintain
+                                organizational integrity with confidence</p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +313,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Risk Assessment</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We conduct thorough risk assessments to identify threats, evaluate vulnerabilities, prioritize mitigation strategies, and strengthen organizational resilience effectively.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We conduct thorough risk assessments to identify
+                                threats, evaluate vulnerabilities, prioritize mitigation strategies, and strengthen
+                                organizational resilience effectively.</p>
                         </div>
                     </div>
                 </div>
@@ -353,7 +361,8 @@
                         <i class="fas fa-cube"></i>
                     </div>
                     <h3>Identity & Access Control</h3>
-                    <p>Ensure only authorized users access critical resources through robust authentication protocols.</p>
+                    <p>Ensure only authorized users access critical resources through robust authentication protocols.
+                    </p>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">
@@ -419,11 +428,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6 mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // Add smooth scrolling to all links
@@ -466,6 +471,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
             });
     </script>
     <script>

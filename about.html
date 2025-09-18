@@ -83,18 +83,20 @@
       </div>
     </div>
   </section>
-
-  <footer class="bg-gray-900 text-white py-6 mt-16">
-    <div class="max-w-5xl mx-auto text-center">
-      <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-    </div>
-  </footer>
+  <div id="footer"></div>
 
   <script>
     fetch("header.html")
       .then(response => response.text())
       .then(data => {
         document.getElementById("header").innerHTML = data;
+      });
+  </script>
+  <script>
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
       });
   </script>
   <script>

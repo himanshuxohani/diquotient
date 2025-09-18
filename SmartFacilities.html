@@ -261,7 +261,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Building Automation</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We provide building automation solutions that control systems, enhance energy efficiency, improve comfort, and streamline operations for smart facilities.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We provide building automation solutions that
+                                control systems, enhance energy efficiency, improve comfort, and streamline operations
+                                for smart facilities.</p>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Energy Management</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We deliver energy management solutions that optimize consumption, reduce costs, enhance sustainability, and ensure efficient, reliable operations across facilities.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We deliver energy management solutions that
+                                optimize consumption, reduce costs, enhance sustainability, and ensure efficient,
+                                reliable operations across facilities.</p>
                         </div>
                     </div>
                 </div>
@@ -292,7 +296,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Environmental Controls</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We implement environmental controls to monitor and regulate conditions, ensuring safety, efficiency, compliance, and optimal operational performance.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We implement environmental controls to monitor and
+                                regulate conditions, ensuring safety, efficiency, compliance, and optimal operational
+                                performance.</p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +313,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Security Systems</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We design security systems that protect assets, monitor threats, prevent breaches, and ensure safety through intelligent, reliable solutions.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We design security systems that protect assets,
+                                monitor threats, prevent breaches, and ensure safety through intelligent, reliable
+                                solutions.</p>
                         </div>
                     </div>
                 </div>
@@ -419,11 +427,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6 mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // Add smooth scrolling to all links
@@ -466,6 +470,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
             });
     </script>
     <script>

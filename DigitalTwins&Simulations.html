@@ -263,7 +263,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Digital Modeling</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We create precise, innovative digital models that transform concepts into reality, enabling visualization, simulation, and design optimization across industries.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We create precise, innovative digital models that
+                                transform concepts into reality, enabling visualization, simulation, and design
+                                optimization across industries.</p>
                         </div>
                     </div>
                 </div>
@@ -278,7 +280,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Simulation Testing</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We deliver advanced simulation testing solutions to validate performance, ensure reliability, minimize risks, and optimize product designs before real-world deployment.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We deliver advanced simulation testing solutions
+                                to validate performance, ensure reliability, minimize risks, and optimize product
+                                designs before real-world deployment.</p>
                         </div>
                     </div>
                 </div>
@@ -294,7 +298,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Virtual Prototyping</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We develop interactive virtual prototypes that accelerate innovation, reduce costs, enhance visualization, and validate designs before physical product creation.
+                            <p class="text-[#7D7D7D] leading-relaxed">We develop interactive virtual prototypes that
+                                accelerate innovation, reduce costs, enhance visualization, and validate designs before
+                                physical product creation.
                             </p>
                         </div>
                     </div>
@@ -310,7 +316,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Scenario Analysis</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We conduct scenario analysis to evaluate possibilities, predict outcomes, mitigate risks, and support strategic decision-making with data-driven insights.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We conduct scenario analysis to evaluate
+                                possibilities, predict outcomes, mitigate risks, and support strategic decision-making
+                                with data-driven insights.</p>
                         </div>
                     </div>
                 </div>
@@ -427,11 +435,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6 mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // Add smooth scrolling to all links
@@ -474,6 +478,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
             });
     </script>
     <script>

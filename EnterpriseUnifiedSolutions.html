@@ -261,7 +261,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 System Integration</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We deliver seamless system integration solutions that connect applications, streamline workflows, enhance efficiency, and ensure unified digital ecosystems.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We deliver seamless system integration solutions
+                                that connect applications, streamline workflows, enhance efficiency, and ensure unified
+                                digital ecosystems.</p>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Unified Platforms</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We build unified platforms that centralize operations, enhance collaboration, integrate technologies, and deliver seamless experiences across digital ecosystems.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We build unified platforms that centralize
+                                operations, enhance collaboration, integrate technologies, and deliver seamless
+                                experiences across digital ecosystems.</p>
                         </div>
                     </div>
                 </div>
@@ -292,7 +296,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Cross-functional Tools</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We design cross-functional tools that connect teams, streamline operations, enhance productivity, and enable seamless collaboration across business functions.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We design cross-functional tools that connect
+                                teams, streamline operations, enhance productivity, and enable seamless collaboration
+                                across business functions.</p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +313,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Scalable Architecture</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We create scalable architecture solutions that support growth, enhance performance, ensure flexibility, and adapt seamlessly to evolving business needs.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We create scalable architecture solutions that
+                                support growth, enhance performance, ensure flexibility, and adapt seamlessly to
+                                evolving business needs.</p>
                         </div>
                     </div>
                 </div>
@@ -419,11 +427,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6 mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // Add smooth scrolling to all links
@@ -466,6 +470,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
             });
     </script>
     <script>

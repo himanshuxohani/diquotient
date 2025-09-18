@@ -261,7 +261,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Process Control</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We implement process control solutions to monitor operations, maintain quality, optimize efficiency, and ensure consistent, reliable performance across systems.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We implement process control solutions to monitor
+                                operations, maintain quality, optimize efficiency, and ensure consistent, reliable
+                                performance across systems.</p>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Quality Assurance</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We provide quality assurance services that ensure products meet standards, enhance reliability, reduce defects, and deliver exceptional performance consistently.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We provide quality assurance services that ensure
+                                products meet standards, enhance reliability, reduce defects, and deliver exceptional
+                                performance consistently.</p>
                         </div>
                     </div>
                 </div>
@@ -292,7 +296,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Efficiency Optimization</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We drive efficiency optimization by refining processes, reducing waste, enhancing productivity, and maximizing performance across all business operations.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We drive efficiency optimization by refining
+                                processes, reducing waste, enhancing productivity, and maximizing performance across all
+                                business operations.</p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +313,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Compliance Management</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We drive efficiency optimization by refining processes, reducing waste, enhancing productivity, and maximizing performance across all business operations..</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We drive efficiency optimization by refining
+                                processes, reducing waste, enhancing productivity, and maximizing performance across all
+                                business operations..</p>
                         </div>
                     </div>
                 </div>
@@ -419,11 +427,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6 mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // Add smooth scrolling to all links
@@ -466,6 +470,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
             });
     </script>
     <script>

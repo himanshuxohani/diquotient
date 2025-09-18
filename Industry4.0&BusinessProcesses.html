@@ -261,7 +261,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Process Automation</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We implement process automation to streamline workflows, reduce errors, boost efficiency, cut costs, and enable smarter business operations.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We implement process automation to streamline
+                                workflows, reduce errors, boost efficiency, cut costs, and enable smarter business
+                                operations.</p>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Workflow Automation</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We deliver workflow automation solutions that optimize processes, eliminate bottlenecks, improve efficiency, and empower teams with seamless digital operations.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We deliver workflow automation solutions that
+                                optimize processes, eliminate bottlenecks, improve efficiency, and empower teams with
+                                seamless digital operations.</p>
                         </div>
                     </div>
                 </div>
@@ -292,7 +296,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Digital Integration</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We provide digital integration solutions that unify systems, connect data, streamline operations, and drive seamless collaboration across platforms.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We provide digital integration solutions that
+                                unify systems, connect data, streamline operations, and drive seamless collaboration
+                                across platforms.</p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +313,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Performance Metrics</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We define and track performance metrics to measure success, optimize strategies, improve efficiency, and drive continuous business growth.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We define and track performance metrics to measure
+                                success, optimize strategies, improve efficiency, and drive continuous business growth.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -369,7 +377,7 @@
                     <h3>Supply Chain Digitization</h3>
                     <p>Transform supply chains into responsive, data-driven networks for end-to-end visibility.
 
-</p>
+                    </p>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">
@@ -421,11 +429,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6 mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // Add smooth scrolling to all links
@@ -468,6 +472,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
             });
     </script>
     <script>

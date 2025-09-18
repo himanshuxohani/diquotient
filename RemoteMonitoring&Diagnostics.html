@@ -261,7 +261,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Real-time Monitoring</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We offer real-time monitoring solutions that track systems continuously, detect issues instantly, and enable proactive, data-driven decision-making.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We offer real-time monitoring solutions that track
+                                systems continuously, detect issues instantly, and enable proactive, data-driven
+                                decision-making.</p>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Predictive Maintenance</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We implement predictive maintenance solutions that anticipate equipment failures, minimize downtime, reduce costs, and ensure optimal operational performance.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We implement predictive maintenance solutions that
+                                anticipate equipment failures, minimize downtime, reduce costs, and ensure optimal
+                                operational performance.</p>
                         </div>
                     </div>
                 </div>
@@ -292,7 +296,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Alert Systems</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We develop alert systems that provide timely notifications, enhance situational awareness, prevent disruptions, and enable swift, informed responses.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We develop alert systems that provide timely
+                                notifications, enhance situational awareness, prevent disruptions, and enable swift,
+                                informed responses.</p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +313,9 @@
                             <h3
                                 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-[#FF5722] transition-colors">
                                 Performance Tracking</h3>
-                            <p class="text-[#7D7D7D] leading-relaxed">We offer performance tracking solutions that monitor progress, evaluate results, optimize strategies, and drive continuous improvement across operations.</p>
+                            <p class="text-[#7D7D7D] leading-relaxed">We offer performance tracking solutions that
+                                monitor progress, evaluate results, optimize strategies, and drive continuous
+                                improvement across operations.</p>
                         </div>
                     </div>
                 </div>
@@ -419,11 +427,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-6 mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <p>&copy; 2025 Digital Quotient. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // Add smooth scrolling to all links
@@ -466,6 +470,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
             });
     </script>
     <script>
