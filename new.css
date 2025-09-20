@@ -1580,9 +1580,9 @@ body {
   z-index: 999;
 }
 
-.navbar-item:hover .dropdown-menu {
+/* .navbar-item:hover .dropdown-menu {
   display: block;
-}
+} */
 
 .dropdown-content {
   display: flex;
@@ -1594,17 +1594,43 @@ body {
 }
 
 .dropdown-preview {
-  display: none;   
+  /* display: none;    */
+  pointer-events: none; display: flex;
   width: 70%;
 }
 
+
 #preview-img {
-  width: 220px;
-  height: 160px;
+  width: 300px;
+  height: 250px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+/* Always allow dropdown to open when hovering li */
+.navbar-item.has-dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* Don’t override link transforms */
+.navbar-item.has-dropdown > a {
+  display: inline-block; /* important for scaling */
+}
+
+
+/* dropdown menu hidden by default; shown when parent gets .open */
+.navbar-item.has-dropdown.open > .dropdown-menu { display: block; }
+
+
+/* make sure anchors are inline-block (so transform works) */
+.navbar-item > a,
+.dropdown-column a,
+nav a { display: inline-block; }
+
+/* fallback: if something overrides hover, provide a tiny fallback transform on parent hover */
+.navbar-item:hover > a,
+.navbar-item:focus-within > a,
+nav a:hover { transform: scale(1.05); transition: transform .18s ease-in-out; }
 
 

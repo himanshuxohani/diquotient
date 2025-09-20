@@ -626,25 +626,6 @@
         <div id="footer"></div>
     </div>
 
-    <!-- <script>
-        const listItems = document.querySelectorAll(".dropdown-column li");
-        const previewBox = document.querySelector(".dropdown-preview");
-        const previewImg = document.getElementById("preview-img");
-        const dropdownContent = document.querySelector(".dropdown-content");
-
-        listItems.forEach(item => {
-            item.addEventListener("mouseenter", () => {
-                const imgSrc = item.getAttribute("data-img");
-                previewImg.src = imgSrc;
-                previewBox.style.display = "flex";
-            });
-        });
-
-        // Hide preview only when mouse leaves the entire content area:
-        dropdownContent.addEventListener("mouseleave", () => {
-            previewBox.style.display = "none";
-        });
-    </script> -->
 
     <script src="imghover.js"></script>
 
@@ -663,7 +644,7 @@
             });
     </script>
 
-    <script>
+    <!-- <script>
         // Load header dynamically
         fetch("header.html")
             .then(response => response.text())
@@ -699,7 +680,95 @@
                 });
             });
         }
+    </script> -->
+
+    <script>
+        // fetch header and init everything
+        fetch("header.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("header").innerHTML = html;
+                // run initializers after header inserted
+                initHeaderInteractions();
+                initHoverPreview(); // keeps your preview behavior but safer
+            })
+            .catch(err => console.error("header load error:", err));
+
+        // Adds robust zoom handlers to all header anchors + some safety styles
+        function initHeaderInteractions() {
+            const headerContainer = document.getElementById("header");
+            if (!headerContainer) return;
+
+            // Make sure header sits on top of page content
+            const headerEl = headerContainer.querySelector("header") || headerContainer;
+            headerEl.style.zIndex = "99999";
+            headerEl.style.position = headerEl.style.position || "relative";
+
+            // Prevent dropdown preview from stealing pointer events (set below)
+            headerContainer.querySelectorAll(".dropdown-preview").forEach(el => {
+                el.style.pointerEvents = "none";
+            });
+
+            // Attach "zoom" handlers to all anchors inside the header
+            const anchors = headerContainer.querySelectorAll("a[href]");
+            anchors.forEach(a => {
+                // don't add handlers to anchors inside preview (if any)
+                if (a.closest(".dropdown-preview")) return;
+
+                // ensure anchor is treated as box for transforms
+                a.style.display = a.style.display || "inline-block";
+                a.style.position = a.style.position || "relative";
+                a.style.zIndex = a.style.zIndex || "1000";
+                a.style.willChange = "transform";
+                a.style.transition = a.style.transition || "transform 180ms ease, color 180ms ease";
+
+                // Avoid adding duplicate listeners
+                if (a.dataset.zoomInitialized) return;
+                a.dataset.zoomInitialized = "1";
+
+                // JS-driven zoom (works regardless of other CSS/hover stealing)
+                a.addEventListener("mouseenter", () => {
+                    a.style.transform = "scale(1.05)";
+                });
+                a.addEventListener("mouseleave", () => {
+                    a.style.transform = "scale(1)";
+                });
+            });
+        }
+
+        // Safer preview logic: toggle 'open' class and set preview src without style.display
+        function initHoverPreview() {
+            const dropdowns = document.querySelectorAll(".navbar-item.has-dropdown");
+            dropdowns.forEach(dropdown => {
+                const listItems = dropdown.querySelectorAll(".dropdown-column li");
+                // try both id and class for preview img (handles existing markup)
+                const previewImg = dropdown.querySelector("#preview-img") || dropdown.querySelector("img.preview-img");
+                const previewBox = dropdown.querySelector(".dropdown-preview");
+                const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+
+                // ensure preview box won't steal pointer events
+                if (previewBox) previewBox.style.pointerEvents = "none";
+
+                // show/hide using class 'open' so we don't directly manipulate inline display all over
+                dropdown.addEventListener("mouseenter", () => dropdown.classList.add("open"));
+                dropdown.addEventListener("mouseleave", () => {
+                    dropdown.classList.remove("open");
+                    if (previewImg) previewImg.src = "";
+                });
+
+                listItems.forEach(item => {
+                    item.addEventListener("mouseenter", () => {
+                        const imgSrc = item.getAttribute("data-img") || "";
+                        if (previewImg && imgSrc) previewImg.src = imgSrc;
+                        dropdown.classList.add("open");
+                    });
+                });
+            });
+        }
     </script>
+
+
+
 
     <script src="/preview/a7e56530-a4f1-4c10-8889-78bf632ce47c/1877418/_next/static/chunks/webpack-63e7df8e0265845c.js"
         async=""></script>
