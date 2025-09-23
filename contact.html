@@ -21,7 +21,7 @@
             <div class="grid lg:grid-cols-2 gap-12">
                 <div class="bg-white p-8 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">Connect with our Experts!</h3>
-                    <form id="contact-form" class="space-y-6">
+                    <!-- <form id="contact-form" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div><label class="block text-sm font-medium text-gray-700 mb-2">Full Name
                                     *</label><input type="text" required=""
@@ -64,11 +64,68 @@
                                 characters)</label><textarea name="message" required="" maxLength="500" rows="5"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5722] focus:border-transparent resize-none text-sm"
                                 placeholder="Write a message covering your background and query"></textarea>
-                            <div class="text-right text-sm text-gray-500 mt-1">0<!-- -->/500</div>
+                            <div class="text-right text-sm text-gray-500 mt-1">0/500</div>
                         </div><button type="submit"
                             class="w-full bg-[#FF5722] text-white py-3 px-6 rounded-lg hover:bg-[#E64A19] transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap">Send
                             Message</button>
+                    </form> -->
+
+                    <form id="contact-form" action="https://formspree.io/f/mjkavgyw" method="POST" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" name="name" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5722] focus:border-transparent text-sm"
+                                    placeholder="Enter your full name" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5722] focus:border-transparent text-sm"
+                                    placeholder="Enter your email" />
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Company *</label>
+                                <input type="text" name="company" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5722] focus:border-transparent text-sm"
+                                    placeholder="Your company name" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input type="tel" name="phone" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5722] focus:border-transparent text-sm"
+                                    placeholder="Your phone number" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Designation/Role</label>
+                            <input type="text" name="designation"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5722] focus:border-transparent text-sm"
+                                placeholder="Your designation" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message * (Max 500
+                                characters)</label>
+                            <textarea name="message" required maxlength="500" rows="5"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF5722] focus:border-transparent resize-none text-sm"
+                                placeholder="Write a message covering your background and query"></textarea>
+                        </div>
+
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <input type="hidden" name="_redirect" value="https://diquotient.com/index.html">
+
+                        <button type="submit"
+                            class="w-full bg-[#FF5722] text-white py-3 px-6 rounded-lg hover:bg-[#E64A19] transition-colors font-semibold">
+                            Send Message
+                        </button>
                     </form>
+
                 </div>
                 <div class="space-y-8">
                     <div class="bg-white p-8 rounded-lg shadow-lg">
@@ -209,6 +266,28 @@
             });
         }
     </script>
+
+    <script>
+        const form = document.getElementById("contact-form");
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                alert("✅ Message sent successfully!");
+                form.reset();
+            } else {
+                alert("❌ Something went wrong. Try again!");
+            }
+        });
+    </script>
+
 
 </body>
 
