@@ -1593,14 +1593,34 @@ body {
   width: 50%;
 }
 
-.dropdown-preview {
-  /* display: none;    */
+/* .dropdown-preview {
+  
   pointer-events: none; display: flex;
   width: 70%;
+} */
+
+.dropdown-preview {
+  pointer-events: none;
+  display: flex;
+  width: 70%;
+  visibility: hidden;  /* ← add this */
+}
+
+.dropdown-column li:hover ~ .dropdown-preview,
+.dropdown-column li:hover + .dropdown-preview {
+  visibility: visible;
 }
 
 
-#preview-img {
+/* #preview-img {
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+} */
+
+.preview-img {
   width: 300px;
   height: 250px;
   object-fit: cover;
