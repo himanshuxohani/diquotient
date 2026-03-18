@@ -256,7 +256,8 @@
                     <div class="flex items-start space-x-6">
                         <div
                             class="w-16 h-16 bg-[#FF5722] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
-                            <i class="fa-solid fa-hexagon-nodes text-2xl text-white w-8 h-8 flex items-center justify-center"></i>
+                            <i
+                                class="fa-solid fa-hexagon-nodes text-2xl text-white w-8 h-8 flex items-center justify-center"></i>
                         </div>
                         <div class="flex-1">
                             <h3
@@ -273,7 +274,8 @@
                     <div class="flex items-start space-x-6">
                         <div
                             class="w-16 h-16 bg-[#FF5722] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
-                            <i class="fa-solid fa-hexagon-nodes text-2xl text-white w-8 h-8 flex items-center justify-center"></i>
+                            <i
+                                class="fa-solid fa-hexagon-nodes text-2xl text-white w-8 h-8 flex items-center justify-center"></i>
                         </div>
                         <div class="flex-1">
                             <h3
@@ -487,13 +489,10 @@
             });
     </script>
     <script>
-        // Load header dynamically
         fetch("header.html")
             .then(response => response.text())
             .then(data => {
                 document.getElementById("header").innerHTML = data;
-
-                // ✅ Run hover script only after header is inserted
                 initHoverPreview();
             });
 
@@ -503,22 +502,23 @@
             dropdowns.forEach(dropdown => {
                 const listItems = dropdown.querySelectorAll(".dropdown-column li");
                 const previewBox = dropdown.querySelector(".dropdown-preview");
-                const previewImg = dropdown.querySelector("#preview-img");
-                const dropdownContent = dropdown.querySelector(".dropdown-content");
+                const previewImg = dropdown.querySelector(".preview-img"); // ← was #preview-img
 
                 if (!listItems.length || !previewBox || !previewImg) return;
 
                 listItems.forEach(item => {
                     item.addEventListener("mouseenter", () => {
                         const imgSrc = item.getAttribute("data-img");
-                        previewImg.src = imgSrc;
-                        previewBox.style.display = "flex";
+                        if (imgSrc) {
+                            previewImg.src = imgSrc;
+                            previewBox.style.visibility = "visible"; // ← was display flex
+                        }
                     });
-                });
 
-                dropdownContent.addEventListener("mouseleave", () => {
-                    previewBox.style.display = "none";
-                    previewImg.src = "";
+                    item.addEventListener("mouseleave", () => {
+                        previewBox.style.visibility = "hidden";  // ← hide on leave
+                        previewImg.src = "";
+                    });
                 });
             });
         }
